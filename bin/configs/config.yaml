@@ -1,0 +1,25 @@
+ct2_config:
+  port: /dev/ttyM0
+  baudrate: 57600
+  timeout: 100
+  parity: 0
+  stopbits: 1
+  databites: 8
+meteo_config:
+  model_name: GMX500
+  serial_config:
+    port: /dev/ttyUSB0
+    baudrate: 19200
+    timeout: 200
+    parity: 0
+    stopbits: 1
+    databites: 8
+meteo_sv_config:
+  hostname: "192.168.190.113"
+sqlite_config:
+  store_dir: /media/sd
+file_config:
+  store_dir: /media/sd
+upload_flag: 1
+muticast_iface:
+  ifaces: [eth0, wlan0]
