@@ -51,41 +51,48 @@ go version go1.20 linux/amd64
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
+Install systemctl on linux system
 
 ```
-Give the example
+[Unit]
+Description=GMX5xx system Service
+After=network.target
+Conflicts=getty@tty1.service
+
+[Service]
+Type=simple
+User=met
+WorkingDirectory={workdir}/gmx5xx-tty-controller/bin
+ExecStart={workdir}/gmx5xx-tty-controller/bin/gmx5xx-tty-controller
+# StandardOutput=null
+RestartSec=5
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
 ```
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
 
 ## 🔧 Running the tests <a name = "tests"></a>
 
-Explain how to run the automated tests for this system.
+check system journalctl 
+
+```
+met@met-logger06:/etc/systemd/system$ sudo journalctl -u gmx5xx.service
+-- Boot 76ed7b3dfc8a411085d4661b4d06026d --
+Oct 28 02:28:26 met-logger06 gmx5xx-tty-controller[721]: 2023/10/28 02:28:26 GMX5xx tty controller service start
+Oct 28 02:28:26 met-logger06 gmx5xx-tty-controller[721]: 2023/10/28 02:28:26 Hostname: met-logger06
+Oct 28 02:28:26 met-logger06 gmx5xx-tty-controller[721]: 2023/10/28 02:28:26 Found port: /dev/ttyS0
+Oct 28 02:28:26 met-logger06 gmx5xx-tty-controller[721]: 2023/10/28 02:28:26 Found port: /dev/ttyUSB0
+Oct 28 02:28:27 met-logger06 gmx5xx-tty-controller[721]: 2023/10/28 02:28:27 setup interfaces: [enp1s0 wlp3s0]
+```
 
 ### Break down into end to end tests
 
-Explain what these tests test and why
-
-```
-Give an example
-```
 
 ### And coding style tests
 
-Explain what these tests test and why
 
-```
-Give an example
-```
 
 ## 🎈 Usage <a name="usage"></a>
 
