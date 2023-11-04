@@ -143,11 +143,11 @@ func Sender(met_data *Q_met.GMX_data_struct, ifaces *Q_cfg.Muti_Cfg) {
 				}
 				any_display_messsage = append(any_display_messsage, color_green)
 				if met_data.Relative_Humidity != nil {
-					any_display_messsage = append(any_display_messsage, []byte(fmt.Sprintf("%3.0f", math.Round(float64(*met_data.Relative_Humidity))))...)
+					any_display_messsage = append(any_display_messsage, []byte(fmt.Sprintf("%2.0f", math.Round(float64(*met_data.Relative_Humidity))))...)
 				} else {
 					any_display_messsage = append(any_display_messsage, []byte("---")...)
 				}
-				any_display_messsage = append(any_display_messsage, []byte("  ")...)
+				any_display_messsage = append(any_display_messsage, []byte("   ")...)
 				any_display_messsage = append(any_display_messsage, color_green)
 				if met_data.Direction != nil {
 					// any_display_messsage = append(any_display_messsage, []byte(fmt.Sprintf("%3.0f", *met_data.Direction))...)
