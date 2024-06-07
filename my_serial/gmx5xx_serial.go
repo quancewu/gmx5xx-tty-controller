@@ -54,7 +54,7 @@ func Met_go(met_data *GMX_data_struct, meteo_cfg *Q_cfg.Meteo_Cfg) {
 	if meteo_cfg.Model == "GMX500" {
 		modbus_poll = []byte{1, 3, 0, 0, 0, 0x24}
 		model_para_len = 6
-	} else if meteo_cfg.Model == "GMX500" {
+	} else if meteo_cfg.Model == "GMX550" {
 		modbus_poll = []byte{1, 3, 0, 0, 0, 0x28}
 		model_para_len = 8
 	} else {
